@@ -22,7 +22,13 @@ const App = () => {
           officia deserunt mollit anim id est laborum.
         </Pitch>
         <Block>
-
+          <Date>2023</Date>
+          <Experience>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </Experience>
         </Block>
       </Section>
     </Main>
@@ -70,6 +76,16 @@ const Block = styled.div`
   background-color: #b5b5b5;
   padding: 10px;
   margin: 1rem;
+  display: flex;
+`
+
+const Date = styled.div`
+  background-color: #d6d6d6;
+`
+
+const Experience = styled.div`
+  background-color: #a7a7a7;
+  width: 70%;
 `
 
 export default App;
