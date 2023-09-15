@@ -7,10 +7,18 @@ const App = () => {
     <Main>
       <Section width="40%">
         <Name>Kevin Le Faucheur</Name>
+        <Job>Développeur Frontend</Job>
+        <Hook>Un vecteur graphique pour votre entreprise.</Hook>
         <Nav>
+          <Anchor>Projet 1</Anchor>
+          <Anchor>Projet 1</Anchor>
+          <Anchor>Projet 1</Anchor>
         </Nav>
         <Social>
-
+          <SocialLink>&nbsp;</SocialLink>
+          <SocialLink>&nbsp;</SocialLink>
+          <SocialLink>&nbsp;</SocialLink>
+          <SocialLink>&nbsp;</SocialLink>
         </Social>
       </Section>
       <Section width="60%">
@@ -52,17 +60,38 @@ const Name = styled.h1`
 `
 
 const Social = styled.nav`
-  width: 100%;
   background-color: #bbb;
-  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 20%;
   margin-top: auto;
   margin-bottom: 3rem;
+`
+
+const SocialLink = styled.a`
+  background-color: #f6f6f6;
+  border-radius: 25%;
+  width: 35px;
+  height: 35px;
 `
 
 const Pitch = styled.div`
   background-color: #f6f6f6;
   padding: 10px;
   margin: 1rem;
+`
+
+const Anchor = styled.div`
+
+`
+
+const Job = styled.div`
+
+`
+
+const Hook = styled.div`
+
 `
 
 export default App;
