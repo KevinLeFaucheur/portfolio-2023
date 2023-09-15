@@ -1,7 +1,16 @@
 import React from 'react'
+import { styled } from 'styled-components'
 
-export const Tag = () => {
+export const Tag = ({ name }) => {
   return (
-    <div>Tag</div>
+    <Container>{name}</Container>
   )
 }
+
+const Container = styled.div`
+  background-color: #d5d5d5;
+  border-radius: 15px;
+  padding: 5px 20px;
+  text-align: center;
+  width: fit-content;
+`
