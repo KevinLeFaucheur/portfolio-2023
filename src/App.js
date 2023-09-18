@@ -64,7 +64,7 @@ const Hook = styled.div`
 
 const Nav = styled.nav`
   background-color: #f6f6f6;
-  height: 300px;
+  height: 100px;
   padding: 10%;
 `
 
@@ -81,7 +81,7 @@ const Social = styled.nav`
   position: fixed;
   width: ${({ width }) => width};
   bottom: 0;
-  background-color: #bbb;
+  background-color: rgba(0, 15, 55, .2);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -100,7 +100,7 @@ const SocialLink = styled.a`
 const Pitch = styled.div`
   background-color: #f6f6f6;
   padding: 10px;
-  margin: 1rem;
+  margin: 5% 1rem;
 `
 
 const Anchor = styled.div`
