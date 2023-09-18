@@ -19,6 +19,9 @@ export const Experience = () => {
       </About>
       <Technologies>
         <Tag name='React' />
+        <Tag name='JavaScript' />
+        <Tag name='Redux' />
+        <Tag name='Sass' />
       </Technologies>
     </Body>
   </Container>
@@ -52,5 +55,6 @@ const About = styled.div`
 `
 
 const Technologies = styled.div`
-padding: 10px;
+  display: flex;
+  padding: 10px;
 `

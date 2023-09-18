@@ -31,6 +31,8 @@ const App = () => {
           officia deserunt mollit anim id est laborum.
         </Pitch>
         <Experience />
+        <Experience />
+        <Experience />
       </Section>
     </Main>
   );
