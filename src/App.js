@@ -6,15 +6,17 @@ const App = () => {
   return (
     <Main>
       <Section width="40%">
-        <Name>Kevin Le Faucheur</Name>
-        <Job>Développeur Frontend</Job>
-        <Hook>Un vecteur graphique pour votre entreprise.</Hook>
+        <Header>
+          <Name>Kevin Le Faucheur</Name>
+          <Job>Développeur Frontend</Job>
+          <Hook>Un vecteur graphique pour votre entreprise.</Hook>
+        </Header>
         <Nav>
-          <Anchor>Projet 1</Anchor>
-          <Anchor>Projet 1</Anchor>
-          <Anchor>Projet 1</Anchor>
+          <Anchor className='selected'>----- Projet 1</Anchor>
+          <Anchor>----- Projet 2</Anchor>
+          <Anchor>----- Projet 3</Anchor>
         </Nav>
-        <Social>
+        <Social width="40%">
           <SocialLink>&nbsp;</SocialLink>
           <SocialLink>&nbsp;</SocialLink>
           <SocialLink>&nbsp;</SocialLink>
@@ -43,17 +45,8 @@ const Main = styled.main`
   min-height: 100vh;
 `
 
-const Nav = styled.nav`
-  width: 100%;
-  background-color: #f6f6f6;
-  height: 300px;
-`
-
-const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  width: ${({ width }) => width};
-  border-right: 1px solid black;
+const Header = styled.header`
+  padding: 20px 20px;
 `
 
 const Name = styled.h1`
@@ -61,12 +54,38 @@ const Name = styled.h1`
   font-size: 3rem;
 `
 
+const Job = styled.div`
+
+`
+
+const Hook = styled.div`
+
+`
+
+const Nav = styled.nav`
+  background-color: #f6f6f6;
+  height: 300px;
+  padding: 10%;
+`
+
+const Section = styled.section`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: ${({ width }) => width};
+  border-right: 1px solid black;
+`
+
+
 const Social = styled.nav`
+  position: fixed;
+  width: ${({ width }) => width};
+  bottom: 0;
   background-color: #bbb;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 20px 20%;
+  padding: 20px 0;
   margin-top: auto;
   margin-bottom: 3rem;
 `
@@ -85,15 +104,11 @@ const Pitch = styled.div`
 `
 
 const Anchor = styled.div`
+  margin-bottom: 5px;
 
-`
-
-const Job = styled.div`
-
-`
-
-const Hook = styled.div`
-
+  &.selected {
+    font-weight: 500;
+  }
 `
 
 export default App;
