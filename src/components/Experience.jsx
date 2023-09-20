@@ -7,15 +7,19 @@ export const Experience = ({ project }) => {
 
   return (    
   <Container>
-    <Date>{start}-{end}</Date>
+    <Date>
+      <span>{start}</span>
+      <span>{start && end ? '-' : ''}</span>
+      <span>{end}</span>
+    </Date>
     <Body>
       <Title>{title}</Title>
       <Subtitle>{subtitle}</Subtitle>
       <About>{about}</About>
       <Technologies>
-        {tech.map(tag => <Tag name={tag} />)}
+        {tech.map(tag => <Tag key={tag} name={tag} />)}
       </Technologies>
-      {pictures && pictures.map(picture => <img src='' alt='' />)}
+      {pictures && pictures.map(picture => <img key={picture.alt} src='' alt='' />)}
     </Body>
   </Container>
   )
@@ -29,8 +33,12 @@ const Container = styled.div`
 `
 
 const Date = styled.div`
+  display: flex;
+  justify-content: space-between;
   background-color: #d6d6d6;
   width: 120px;
+  padding: 0 10px;
+  text-align: ${({align}) => align};
 `
 
 const Body = styled.div`
@@ -39,6 +47,7 @@ const Body = styled.div`
 `
 
 const Title = styled.h3`
+  margin: 0;
 `
 
 const Subtitle = styled.h4`

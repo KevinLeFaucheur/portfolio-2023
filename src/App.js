@@ -33,7 +33,7 @@ const App = () => {
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
           officia deserunt mollit anim id est laborum.
         </Pitch>
-        {projects.map(project => <Experience project={project} />)}
+        {projects.map(project => <Experience key={project.title} project={project} />)}
       </Section>
     </Main>
   );
