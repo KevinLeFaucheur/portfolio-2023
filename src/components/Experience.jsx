@@ -2,27 +2,20 @@ import React from 'react'
 import { styled } from 'styled-components'
 import { Tag } from './Tag'
 
-export const Experience = () => {
+export const Experience = ({ project }) => {
+  const { start, end, title, subtitle, about, tech, pictures } = project;
+
   return (    
   <Container>
-    <Date>2023</Date>
+    <Date>{start}-{end}</Date>
     <Body>
-      <Title>Développeur JavaScript React</Title>
-      <Subtitle>OpenClassrooms</Subtitle>
-      <About>
-        Vous travaillez pour le département technologique d'une grande société financière, 
-        WealthHealth. Cette société utilise une application web interne, appelée HRnet, 
-        qui gère les dossiers des employés. L'application est ancienne et utilise jQuery 
-        côté front end, ce qui entraîne des bugs considérables et une augmentation des 
-        plaintes en interne. Votre équipe de développement s'efforce depuis un certain 
-        temps déjà de mettre à niveau l'application.
-      </About>
+      <Title>{title}</Title>
+      <Subtitle>{subtitle}</Subtitle>
+      <About>{about}</About>
       <Technologies>
-        <Tag name='React' />
-        <Tag name='JavaScript' />
-        <Tag name='Redux' />
-        <Tag name='Sass' />
+        {tech.map(tag => <Tag name={tag} />)}
       </Technologies>
+      {pictures && pictures.map(picture => <img src='' alt='' />)}
     </Body>
   </Container>
   )

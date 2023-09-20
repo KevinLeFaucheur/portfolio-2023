@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import './App.css';
 import { Experience } from './components/Experience';
+import { projects } from './data/projects';
 
 const App = () => {
   return (
@@ -32,9 +33,7 @@ const App = () => {
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
           officia deserunt mollit anim id est laborum.
         </Pitch>
-        <Experience />
-        <Experience />
-        <Experience />
+        {projects.map(project => <Experience project={project} />)}
       </Section>
     </Main>
   );
