@@ -18,10 +18,10 @@ const App = () => {
           <Anchor>----- Projet 3</Anchor>
         </Nav>
         <Social width="40%">
-          <SocialLink>&nbsp;</SocialLink>
-          <SocialLink>&nbsp;</SocialLink>
-          <SocialLink>&nbsp;</SocialLink>
-          <SocialLink>&nbsp;</SocialLink>
+          <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>in</SocialLink>
+          <SocialLink href='https://github.com/KevinLeFaucheur' >git</SocialLink>
+          <SocialLink href='' >&nbsp;</SocialLink>
+          <SocialLink href='' >&nbsp;</SocialLink>
         </Social>
       </Section>
       <Section width="60%">
@@ -94,6 +94,14 @@ const SocialLink = styled.a`
   border-radius: 25%;
   width: 35px;
   height: 35px;
+
+  &:link, &:visited, &:hover, &:active {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    text-align: center;
+    line-height: 35px;
+  }
 `
 
 const Pitch = styled.div`
