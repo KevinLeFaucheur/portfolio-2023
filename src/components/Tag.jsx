@@ -16,6 +16,7 @@ const Container = styled.div`
   border-radius: 15px;
   padding: 5px 20px;
   margin-right: 0.8rem;
+  margin-bottom: 0.8rem;
   text-align: center;
   width: fit-content;
   font-weight: 500;

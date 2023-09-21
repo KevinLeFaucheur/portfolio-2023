@@ -13,9 +13,9 @@ const App = () => {
           <Hook>Un vecteur graphique pour votre entreprise.</Hook>
         </Header>
         <Nav>
-          <Anchor className='selected'>----- Projet 1</Anchor>
-          <Anchor>----- Projet 2</Anchor>
-          <Anchor>----- Projet 3</Anchor>
+          <Anchor className='selected'><Bullet></Bullet><span>Projet 1</span></Anchor>
+          <Anchor><Bullet></Bullet><span>Projet 2</span></Anchor>
+          <Anchor><Bullet></Bullet><span>Projet 3</span></Anchor>
         </Nav>
         <Social width="40%">
           <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>in</SocialLink>
@@ -111,11 +111,31 @@ const Pitch = styled.div`
 `
 
 const Anchor = styled.div`
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
   margin-bottom: 5px;
 
   &.selected {
     font-weight: 500;
   }
+
+  &:hover > span:first-child {
+    background-color: rgb(71, 85, 105);
+    width: 4rem;
+    opacity: 1;
+    transition: all .25s ease-in-out;
+  }
+`
+
+const Bullet = styled.span`  
+  display: inline-block;
+  background-color: rgb(226, 232, 240);
+  height: 1px;
+  width: 2rem;
+  margin-right: 1rem;
+  opacity: 0.5;
 `
 
 export default App;

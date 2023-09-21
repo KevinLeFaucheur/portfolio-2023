@@ -64,5 +64,6 @@ const AboutLine = styled.p`
 
 const Technologies = styled.div`
   display: flex;
+  flex-wrap: wrap;
   padding: 10px;
 `
