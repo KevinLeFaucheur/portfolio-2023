@@ -15,7 +15,9 @@ export const Experience = ({ project }) => {
     <Body>
       <Title>{title}</Title>
       <Subtitle>{subtitle}</Subtitle>
-      <About>{about}</About>
+      <About>
+        {Array.isArray(about) ? about.map(line => <AboutLine>{line}</AboutLine>) : about}
+      </About>
       <Technologies>
         {tech.map(tag => <Tag key={tag} name={tag} />)}
       </Technologies>
@@ -54,6 +56,10 @@ const Subtitle = styled.h4`
 `
 
 const About = styled.div`
+`
+
+const AboutLine = styled.p`
+  margin: 0;
 `
 
 const Technologies = styled.div`
