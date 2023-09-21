@@ -1,3 +1,9 @@
+export const pitch = `Je suis enthousiaste à l’idée d’apporter mes compétences à votre équipe, 
+  de mettre en action ma capacité à résoudre les problèmes du développement d’une application 
+  responsive, qui inclut un gestionnaire d’état, l’implémentation d’une API aux données asynchrones 
+  et modélisées, en assurant la qualité avec des tests, en me conformant aux spécifications décrites 
+  et en favorisant un code maintenable et documenté.`;
+
 export const projects = [
   {
     start: 2023,

@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import './App.css';
 import { Experience } from './components/Experience';
 import { projects } from './data/projects';
+import { pitch } from './data/projects';
 
 const App = () => {
   return (
@@ -25,13 +26,8 @@ const App = () => {
         </Social>
       </Section>
       <Section width="60%">
-        <Pitch>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-          officia deserunt mollit anim id est laborum.
+        <Pitch>
+          {pitch}
         </Pitch>
         {projects.map(project => <Experience key={project.title} project={project} />)}
       </Section>
@@ -131,7 +127,7 @@ const Anchor = styled.div`
 
 const Bullet = styled.span`  
   display: inline-block;
-  background-color: rgb(226, 232, 240);
+  background-color: rgb(150, 155, 165);
   height: 1px;
   width: 2rem;
   margin-right: 1rem;
