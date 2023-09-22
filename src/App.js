@@ -7,7 +7,7 @@ import { pitch } from './data/projects';
 const App = () => {
   return (
     <Main>
-      <Section width="40%">
+      <Section width="40%" border="true">
         <Header>
           <Name>Kevin Le Faucheur</Name>
           <Job>Développeur Frontend</Job>
@@ -19,8 +19,12 @@ const App = () => {
           <Anchor><Bullet></Bullet><span>Projet 3</span></Anchor>
         </Nav>
         <Social width="40%">
-          <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>in</SocialLink>
-          <SocialLink href='https://github.com/KevinLeFaucheur' >git</SocialLink>
+          <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>
+            <i class="fa-brands fa-linkedin-in"/>
+          </SocialLink>
+          <SocialLink href='https://github.com/KevinLeFaucheur'>
+            <i class="fa-brands fa-github"/>
+          </SocialLink>
           <SocialLink href='' >&nbsp;</SocialLink>
           <SocialLink href='' >&nbsp;</SocialLink>
         </Social>
@@ -38,6 +42,9 @@ const App = () => {
 const Main = styled.main`
   display: flex;
   min-height: 100vh;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 const Header = styled.header`
@@ -45,7 +52,7 @@ const Header = styled.header`
 `
 
 const Name = styled.h1`
-  text-align: center;
+  /* text-align: center; */
   font-size: 3rem;
 `
 
@@ -60,7 +67,7 @@ const Hook = styled.div`
 const Nav = styled.nav`
   background-color: #f6f6f6;
   height: 100px;
-  padding: 10%;
+  padding: 10% 0;
 `
 
 const Section = styled.section`
@@ -68,15 +75,17 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   width: ${({ width }) => width};
-  border-right: 1px solid black;
+  border-right: ${({ border }) => border ? '1px solid black' : 'none' };
 `
 
 
 const Social = styled.nav`
   position: fixed;
-  width: ${({ width }) => width};
+  /* width: ${({ width }) => width}; */
+  width: 40%;
+  left: 0;
   bottom: 0;
-  background-color: rgba(0, 15, 55, .2);
+  /* background-color: rgba(0, 15, 55, .2); */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -86,10 +95,10 @@ const Social = styled.nav`
 `
 
 const SocialLink = styled.a`
-  background-color: #f6f6f6;
   border-radius: 25%;
   width: 35px;
   height: 35px;
+  border: 2px solid black;
 
   &:link, &:visited, &:hover, &:active {
     text-decoration: none;
