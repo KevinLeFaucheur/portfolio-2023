@@ -14,9 +14,7 @@ const App = () => {
           <Hook>Un vecteur graphique pour votre entreprise.</Hook>
         </Header>
         <Nav>
-          <Anchor className='selected'><Bullet></Bullet><span>Projet 1</span></Anchor>
-          <Anchor><Bullet></Bullet><span>Projet 2</span></Anchor>
-          <Anchor><Bullet></Bullet><span>Projet 3</span></Anchor>
+          {projects.map((project, i) => <Anchor key={project.title} className='selected'><Bullet></Bullet><span>Projet {i + 1}</span></Anchor>)}
         </Nav>
         <Social width="40%">
           <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>
