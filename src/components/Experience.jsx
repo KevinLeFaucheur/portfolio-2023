@@ -28,23 +28,29 @@ export const Experience = ({ project }) => {
 }
 
 const Container = styled.div`
-  background-color: #b5b5b5;
+  /* background-color: #b5b5b5; */// debug
+  border-radius: 15px;
   padding: 10px;
   margin: 1rem;
   display: flex;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .05);
+    transition: all 0.25s ease-in-out;
+  }
 `
 
 const Date = styled.div`
   display: flex;
-  justify-content: space-between;
-  background-color: #d6d6d6;
-  width: 120px;
+  /* background-color: #d6d6d6; */// debug
+  width: 130px;
   padding: 0 10px;
   text-align: ${({align}) => align};
+  font-weight: 500;
 `
 
 const Body = styled.div`
-  background-color: #a7a7a7;
+  /* background-color: #a7a7a7; */ // debug
   width: fit-content;
 `
 

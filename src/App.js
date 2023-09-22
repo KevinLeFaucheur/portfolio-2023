@@ -65,7 +65,7 @@ const Hook = styled.div`
 `
 
 const Nav = styled.nav`
-  background-color: #f6f6f6;
+  /* background-color: #f6f6f6; */  // debug
   height: 100px;
   padding: 10% 0;
 `
@@ -110,9 +110,10 @@ const SocialLink = styled.a`
 `
 
 const Pitch = styled.div`
-  background-color: #f6f6f6;
+  /* background-color: #f6f6f6; */// debug
   padding: 10px;
   margin: 5% 1rem;
+  font-weight: 500;
 `
 
 const Anchor = styled.div`
