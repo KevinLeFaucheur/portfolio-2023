@@ -27,7 +27,7 @@ const App = () => {
           <SocialLink href='' >&nbsp;</SocialLink>
         </Social>
       </Section>
-      <Section width="60%">
+      <Section width="60%" padding="padding-bottom: 66%;">
         <Pitch>
           {pitch}
         </Pitch>
@@ -64,6 +64,8 @@ const Hook = styled.div`
 
 const Nav = styled.nav`
   /* background-color: #f6f6f6; */  // debug
+  position: sticky;
+  top: 0;
   height: 100px;
   padding: 10% 0;
 `
@@ -74,18 +76,15 @@ const Section = styled.section`
   flex-direction: column;
   width: ${({ width }) => width};
   border-right: ${({ border }) => border ? '1px solid black' : 'none' };
+  ${( {padding} ) => padding}
 `
 
 
 const Social = styled.nav`
-  position: fixed;
-  /* width: ${({ width }) => width}; */
-  width: 40%;
+  position: sticky;
   left: 0;
-  bottom: 0;
-  /* background-color: rgba(0, 15, 55, .2); */
+  bottom: 5%;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   padding: 20px 0;
   margin-top: auto;
@@ -97,6 +96,7 @@ const SocialLink = styled.a`
   width: 35px;
   height: 35px;
   border: 2px solid black;
+  margin-right: 10%;
 
   &:link, &:visited, &:hover, &:active {
     text-decoration: none;
