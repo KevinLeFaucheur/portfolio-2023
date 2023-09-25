@@ -105,6 +105,11 @@ const SocialLink = styled.a`
     text-align: center;
     line-height: 35px;
   }
+
+  &:hover {
+    transform: scale(1.2, 1.2);
+    transition: transform 0.15s ease-in-out;
+  }
 `
 
 const Pitch = styled.div`

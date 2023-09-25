@@ -22,4 +22,10 @@ const Container = styled.div`
   text-align: center;
   width: fit-content;
   font-weight: 500;
+
+  &:hover {
+    border: 2px solid rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 1);
+    transition: all .25s ease-out;
+  }
 `
