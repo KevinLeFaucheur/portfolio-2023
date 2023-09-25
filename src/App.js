@@ -14,7 +14,7 @@ const App = () => {
           <Hook>Un vecteur graphique pour votre entreprise.</Hook>
         </Header>
         <Nav>
-          {projects.map((project, i) => <Anchor key={project.title} className='selected'><Bullet></Bullet><span>Projet {i + 1}</span></Anchor>)}
+          {projects.map((project, i) => <Anchor key={project.title} href={'#p' + i} className='selected'><Bullet></Bullet><span>Projet {i + 1}</span></Anchor>)}
         </Nav>
         <Social width="40%">
           <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>
@@ -31,7 +31,7 @@ const App = () => {
         <Pitch>
           {pitch}
         </Pitch>
-        {projects.map(project => <Experience key={project.title} project={project} />)}
+        {projects.map((project, i) => <Experience key={project.title} id={'p' + i} project={project} />)}
       </Section>
     </Main>
   );
@@ -119,12 +119,19 @@ const Pitch = styled.div`
   font-weight: 500;
 `
 
-const Anchor = styled.div`
+const Anchor = styled.a`
   cursor: pointer;
   user-select: none;
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+
+  &:link, &:visited, &:hover, &:active {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    text-align: center;
+  }
 
   &.selected {
     font-weight: 500;

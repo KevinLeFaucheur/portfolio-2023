@@ -2,11 +2,11 @@ import React from 'react'
 import { styled } from 'styled-components'
 import { Tag } from './Tag'
 
-export const Experience = ({ project }) => {
+export const Experience = ({ id, project }) => {
   const { start, end, title, subtitle, about, tech, pictures } = project;
 
   return (    
-  <Container>
+  <Container id={id}>
     <Date>
       <span>{start}</span>
       <span>{start && end ? '-' : ''}</span>
