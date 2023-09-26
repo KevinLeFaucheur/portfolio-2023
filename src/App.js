@@ -3,8 +3,11 @@ import './App.css';
 import { Experience } from './components/Experience';
 import { projects } from './data/projects';
 import { pitch } from './data/projects';
+import { useState } from 'react';
 
 const App = () => {
+  const [selected, setSelected] = useState('p1');
+
   return (
     <Main>
       <Section width="40%" border="true">
@@ -14,7 +17,7 @@ const App = () => {
           <Hook>Un vecteur graphique et déterminant pour votre entreprise.</Hook>
         </Header>
         <Nav>
-          {projects.map((project, i) => <Anchor key={project.title} href={'#p' + i} className='selected'><Bullet></Bullet><span>Projet {i + 1}</span></Anchor>)}
+          {projects.map((project, i) => <Anchor key={project.title} href={'#p' + i} className={selected === `p${i+1}` ? 'selected' : ''}><Bullet /><span className='anchor'>Projet {i + 1}</span></Anchor>)}
         </Nav>
         <Social width="40%">
           <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>
@@ -132,8 +135,8 @@ const Anchor = styled.a`
   align-items: center;
   margin-bottom: 5px;
 
-  &.selected {
-    font-weight: 500;
+  & > span.anchor {
+    font-weight: 400;
   }
 
   &:hover > span:first-child {
@@ -141,6 +144,14 @@ const Anchor = styled.a`
     width: 4rem;
     opacity: 1;
     transition: all .25s ease-in-out;
+  }
+
+  &.selected > span:first-child {
+    width: 4rem;
+  }
+
+  &.selected > span:last-child {
+    font-weight: 500;
   }
 `
 
