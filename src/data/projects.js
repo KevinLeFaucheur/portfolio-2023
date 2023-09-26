@@ -16,7 +16,8 @@ export const projects = [
       "Mettre en place son environnement Front-End", 
       "Produire de la documentation technique pour une application"],
     tech: ['React', 'JavaScript', 'Styled-components', 'NPM', 'Context', 'Lighthouse'],
-    pictures: []
+    pictures: [],
+    link: "",
   },
   {
     start: 2022,

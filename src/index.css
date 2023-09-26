@@ -15,4 +15,6 @@ code {
 
 html{
   scroll-behavior: smooth;
+  background: rgb(202,224,227);
+  background: linear-gradient(0deg, rgb(172, 198, 201) 0%, rgba(255,255,255,1) 100%);
 }

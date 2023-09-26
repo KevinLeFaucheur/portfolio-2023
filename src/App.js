@@ -11,7 +11,7 @@ const App = () => {
         <Header>
           <Name>Kevin Le Faucheur</Name>
           <Job>Développeur Frontend</Job>
-          <Hook>Un vecteur graphique pour votre entreprise.</Hook>
+          <Hook>Un vecteur graphique et déterminant pour votre entreprise.</Hook>
         </Header>
         <Nav>
           {projects.map((project, i) => <Anchor key={project.title} href={'#p' + i} className='selected'><Bullet></Bullet><span>Projet {i + 1}</span></Anchor>)}
@@ -23,8 +23,8 @@ const App = () => {
           <SocialLink href='https://github.com/KevinLeFaucheur'>
             <i class="fa-brands fa-github"/>
           </SocialLink>
-          <SocialLink href='' >&nbsp;</SocialLink>
-          <SocialLink href='' >&nbsp;</SocialLink>
+          {/* <SocialLink href='' >&nbsp;</SocialLink>
+          <SocialLink href='' >&nbsp;</SocialLink> */}
         </Social>
       </Section>
       <Section width="60%" padding="padding-bottom: 66%;">
@@ -52,10 +52,13 @@ const Header = styled.header`
 const Name = styled.h1`
   /* text-align: center; */
   font-size: 3rem;
+  margin-bottom: 0.5rem;
 `
 
 const Job = styled.div`
-
+  margin-bottom: 3rem;
+  font-weight: 500;
+  font-size: 1.2rem;
 `
 
 const Hook = styled.div`
