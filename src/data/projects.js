@@ -17,7 +17,7 @@ export const projects = [
       "Produire de la documentation technique pour une application"],
     tech: ['React', 'JavaScript', 'Styled-components', 'NPM', 'Context', 'Lighthouse'],
     pictures: [],
-    link: "",
+    link: "https://github.com/KevinLeFaucheur/hrnet-react",
   },
   {
     start: 2022,

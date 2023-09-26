@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 import { Tag } from './Tag'
 
 export const Experience = ({ id, project }) => {
-  const { start, end, title, subtitle, about, tech, pictures } = project;
+  const { start, end, title, subtitle, about, tech, pictures, link } = project;
 
   return (    
   <Container id={id}>
@@ -13,7 +13,7 @@ export const Experience = ({ id, project }) => {
       <span>{end}</span>
     </Date>
     <Body>
-      <Title>{title}</Title>
+      <a href={link}><Title>{title + ' '}{link && <i class="fa-solid fa-up-right-from-square fa-xs"></i>}</Title></a>
       <Subtitle>{subtitle}</Subtitle>
       <About>
         {Array.isArray(about) ? about.map(line => <AboutLine>{line}</AboutLine>) : about}
@@ -33,6 +33,12 @@ const Container = styled.div`
   padding: 10px;
   margin: 1rem;
   display: flex;
+
+  & a:hover{
+    text-decoration: underline;
+    color: rgba(102, 153, 182, 1);
+    transition: all 0.25s ease-in-out;
+  }
 
   &:hover {
     background-color: rgba(0, 0, 0, .05);
@@ -55,6 +61,7 @@ const Body = styled.div`
 `
 
 const Title = styled.h3`
+  text-align: left;
   margin: 0;
 `
 

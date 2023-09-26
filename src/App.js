@@ -43,6 +43,13 @@ const Main = styled.main`
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
+
+  & a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    text-align: center;
+  }
 `
 
 const Header = styled.header`
@@ -102,10 +109,6 @@ const SocialLink = styled.a`
   margin-right: 10%;
 
   &:link, &:visited, &:hover, &:active {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    text-align: center;
     line-height: 35px;
   }
 
@@ -128,13 +131,6 @@ const Anchor = styled.a`
   display: flex;
   align-items: center;
   margin-bottom: 5px;
-
-  &:link, &:visited, &:hover, &:active {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    text-align: center;
-  }
 
   &.selected {
     font-weight: 500;
