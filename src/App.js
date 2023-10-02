@@ -8,6 +8,10 @@ import { useState } from 'react';
 const App = () => {
   const [selected, setSelected] = useState('p1');
 
+  const handleAnchorClick = (name) => {
+    setSelected(name);
+  }
+
   return (
     <Main>
       <Section width="40%" $border="1px solid black">
@@ -17,7 +21,16 @@ const App = () => {
           <Hook>Un vecteur graphique et déterminant pour votre entreprise.</Hook>
         </Header>
         <Nav>
-          {projects.map((project, i) => <Anchor key={project.title + i} href={'#p' + i} className={selected === `p${i+1}` ? 'selected' : ''}><Bullet /><span className='anchor'>Projet {i + 1}</span></Anchor>)}
+          {projects.map((project, i) => (
+            <Anchor 
+              key={project.title + i} 
+              href={'#p' + i} 
+              className={selected === `p${i+1}` ? 'selected' : ''}
+              onClick={() => handleAnchorClick(`p${i+1}`)}>
+              <Bullet />
+              <span className='anchor'>Projet {i + 1}</span>
+            </Anchor>
+          ))}
         </Nav>
         <Social width="40%">
           <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>
