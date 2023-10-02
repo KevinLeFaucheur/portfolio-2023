@@ -74,8 +74,10 @@ const Header = styled.header`
 
 const Name = styled.h1`
   /* text-align: center; */
-  font-size: 3rem;
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
+  opacity: 0.75;
 `
 
 const Job = styled.div`
