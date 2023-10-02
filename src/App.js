@@ -10,31 +10,31 @@ const App = () => {
 
   return (
     <Main>
-      <Section width="40%" border="true">
+      <Section width="40%" $border="1px solid black">
         <Header>
           <Name>Kevin Le Faucheur</Name>
           <Job>Développeur Frontend</Job>
           <Hook>Un vecteur graphique et déterminant pour votre entreprise.</Hook>
         </Header>
         <Nav>
-          {projects.map((project, i) => <Anchor key={project.title} href={'#p' + i} className={selected === `p${i+1}` ? 'selected' : ''}><Bullet /><span className='anchor'>Projet {i + 1}</span></Anchor>)}
+          {projects.map((project, i) => <Anchor key={project.title + i} href={'#p' + i} className={selected === `p${i+1}` ? 'selected' : ''}><Bullet /><span className='anchor'>Projet {i + 1}</span></Anchor>)}
         </Nav>
         <Social width="40%">
           <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>
-            <i class="fa-brands fa-linkedin-in"/>
+            <i className="fa-brands fa-linkedin-in"/>
           </SocialLink>
           <SocialLink href='https://github.com/KevinLeFaucheur'>
-            <i class="fa-brands fa-github"/>
+            <i className="fa-brands fa-github"/>
           </SocialLink>
           {/* <SocialLink href='' >&nbsp;</SocialLink>
           <SocialLink href='' >&nbsp;</SocialLink> */}
         </Social>
       </Section>
-      <Section width="60%" padding="padding-bottom: 66%;">
+      <Section width="60%" $padding="padding-bottom: 66%;">
         <Pitch>
           {pitch}
         </Pitch>
-        {projects.map((project, i) => <Experience key={project.title} id={'p' + i} project={project} />)}
+        {projects.map((project, i) => <Experience key={project.title + i} id={'p' + i} project={project} />)}
       </Section>
     </Main>
   );
@@ -88,8 +88,8 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   width: ${({ width }) => width};
-  border-right: ${({ border }) => border ? '1px solid black' : 'none' };
-  ${( {padding} ) => padding}
+  border-right: ${({ $border }) => $border ? $border : 'none' };
+  ${( {$padding} ) => $padding}
 `
 
 

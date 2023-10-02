@@ -13,10 +13,10 @@ export const Experience = ({ id, project }) => {
       <span>{end}</span>
     </Date>
     <Body>
-      <a href={link}><Title>{title + ' '}{link && <i class="fa-solid fa-up-right-from-square fa-xs"></i>}</Title></a>
+      <a href={link}><Title>{title + ' '}{link && <i className="fa-solid fa-up-right-from-square fa-xs"></i>}</Title></a>
       <Subtitle>{subtitle}</Subtitle>
       <About>
-        {Array.isArray(about) ? about.map(line => <AboutLine>{line}</AboutLine>) : about}
+        {Array.isArray(about) ? about.map((line, i) => <AboutLine key={i}>{line}</AboutLine>) : about}
       </About>
       <Technologies>
         {tech.map(tag => <Tag key={tag} name={tag} />)}
