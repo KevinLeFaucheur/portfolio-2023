@@ -3,53 +3,70 @@ import './App.css';
 import { Experience } from './components/Experience';
 import { projects } from './data/projects';
 import { pitch } from './data/projects';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
+
+export const TagContext = createContext([]);
 
 const App = () => {
   const [selected, setSelected] = useState('p1');
+  const [tags, setTags] = useState([]);
 
   const handleAnchorClick = (name) => {
     setSelected(name);
   }
 
+  const addTag = (name) => {
+    if(!tags.some(tagName => tagName === name)) {
+      tags.push(name);
+    }
+    else {
+      tags.splice(tags.findIndex(tagName => tagName === name), 1)
+    }
+    setTags(tags);
+    console.log(tags);
+  }
+
   return (
-    <Main>
-      <Section width="40%" $border="1px solid black">
-        <Header>
-          <Name>Kevin Le Faucheur</Name>
-          <Job>Développeur Frontend</Job>
-          <Hook>Un vecteur graphique et déterminant pour votre entreprise.</Hook>
-        </Header>
-        <Nav>
-          {projects.map((project, i) => (
-            <Anchor 
-              key={project.title + i} 
-              href={'#p' + i} 
-              className={selected === `p${i+1}` ? 'selected' : ''}
-              onClick={() => handleAnchorClick(`p${i+1}`)}>
-              <Bullet />
-              <span className='anchor'>Projet {i + 1}</span>
-            </Anchor>
-          ))}
-        </Nav>
-        <Social width="40%">
-          <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>
-            <i className="fa-brands fa-linkedin-in"/>
-          </SocialLink>
-          <SocialLink href='https://github.com/KevinLeFaucheur'>
-            <i className="fa-brands fa-github"/>
-          </SocialLink>
-          {/* <SocialLink href='' >&nbsp;</SocialLink>
-          <SocialLink href='' >&nbsp;</SocialLink> */}
-        </Social>
-      </Section>
-      <Section width="60%" $padding="padding-bottom: 66%;">
-        <Pitch>
-          {pitch}
-        </Pitch>
-        {projects.map((project, i) => <Experience key={project.title + i} id={'p' + i} project={project} />)}
-      </Section>
-    </Main>
+    <TagContext.Provider value={addTag} >
+      <Main>
+        <Section width="40%" $border="1px solid black">
+          <Header>
+            <Name>Kevin Le Faucheur</Name>
+            <Job>Développeur Frontend</Job>
+            <Hook>Un vecteur graphique et déterminant pour votre entreprise.</Hook>
+          </Header>
+          <Nav>
+            {projects.map((project, i) => (
+              <Anchor 
+                key={project.title + i} 
+                href={'#p' + i} 
+                className={selected === `p${i+1}` ? 'selected' : ''}
+                onClick={() => handleAnchorClick(`p${i+1}`)}>
+                <Bullet />
+                <span className='anchor'>Projet {i + 1}</span>
+              </Anchor>
+            ))}
+          </Nav>
+          <Social width="40%">
+            <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>
+              <i className="fa-brands fa-linkedin-in"/>
+            </SocialLink>
+            <SocialLink href='https://github.com/KevinLeFaucheur'>
+              <i className="fa-brands fa-github"/>
+            </SocialLink>
+            {/* <SocialLink href='' >&nbsp;</SocialLink>
+            <SocialLink href='' >&nbsp;</SocialLink> */}
+          </Social>
+        </Section>
+        <Section width="60%" $padding="padding-bottom: 66%;">
+          <Pitch>
+            {pitch}
+          </Pitch>
+          {projects.map((project, i) => <Experience key={project.title + i} id={'p' + i} project={project} />)}
+        </Section>
+      </Main>
+    </TagContext.Provider>
+
   );
 }
 

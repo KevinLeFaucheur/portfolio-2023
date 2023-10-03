@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { styled } from 'styled-components'
+import { TagContext } from '../App';
 
 export const Tag = ({ name }) => {
+  const addTag = useContext(TagContext);
+
   return (
-    <Container>{name}</Container>
+    <Container onClick={() => addTag(name)} >{name}</Container>
   )
 }
 
