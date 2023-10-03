@@ -31,15 +31,15 @@ const Container = styled.div`
   width: fit-content;
   font-weight: 500;
 
-  &:hover {
+  &.selected {
     border: 2px solid rgba(0, 0, 0, 1);
     color: rgba(0, 0, 0, 1);
     transition: all .25s ease-out;
   }
 
-  &.selected {
-    border: 2px solid rgba(0, 0, 0, 1);
-    color: rgba(0, 0, 0, 1);
+  &:hover {
+    border: 2px solid rgb(74, 185, 236);
+    color: rgba(74, 185, 236, 1);
     transition: all .25s ease-out;
   }
 `

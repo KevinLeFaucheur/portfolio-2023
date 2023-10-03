@@ -28,7 +28,6 @@ export const Experience = ({ id, project }) => {
 }
 
 const Container = styled.div`
-  /* background-color: #b5b5b5; */// debug
   border-radius: 15px;
   padding: 10px;
   margin: 1rem;
@@ -41,14 +40,13 @@ const Container = styled.div`
   }
 
   &:hover {
-    background-color: rgba(0, 0, 0, .05);
+    background-color: rgba(74, 185, 236, .05);
     transition: all 0.25s ease-in-out;
   }
 `
 
 const Date = styled.div`
   display: flex;
-  /* background-color: #d6d6d6; */// debug
   width: 130px;
   padding: 0 10px;
   text-align: ${({align}) => align};
@@ -56,13 +54,17 @@ const Date = styled.div`
 `
 
 const Body = styled.div`
-  /* background-color: #a7a7a7; */ // debug
   width: fit-content;
 `
 
 const Title = styled.h3`
   text-align: left;
   margin: 0;
+
+  &:hover {
+    color: rgba(74, 185, 236, 1);
+    transition: all .25s ease-out;
+  }
 `
 
 const Subtitle = styled.h4`
