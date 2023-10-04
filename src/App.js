@@ -3,19 +3,29 @@ import './App.css';
 import { Experience } from './components/Experience';
 import { projects } from './data/projects';
 import { pitch } from './data/projects';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const TagContext = createContext([]);
 
 const App = () => {
   const [selected, setSelected] = useState('p1');
   const [tags, setTags] = useState([]);
+  const [projectList, setProjectList] = useState(projects);
 
   const handleAnchorClick = (name) => {
     setSelected(name);
   }
 
+  const updateProjectList = () => {
+    if (tags.length === 0) {
+      setProjectList(projects);
+    } else {
+      setProjectList(projects.filter(project => tags.some(tag => project.tech.includes(tag))));
+    }
+  }
+
   const addTag = (name) => {
+    //
     if(!tags.some(tagName => tagName === name)) {
       tags.push(name);
     }
@@ -23,7 +33,9 @@ const App = () => {
       tags.splice(tags.findIndex(tagName => tagName === name), 1)
     }
     setTags(tags);
-    console.log(tags);
+
+    // 
+    updateProjectList();
   }
 
   return (
@@ -62,7 +74,9 @@ const App = () => {
           <Pitch>
             {pitch}
           </Pitch>
-          {projects.map((project, i) => <Experience key={project.title + i} id={'p' + i} project={project} />)}
+          {projectList
+            .map((project, i) => <Experience key={project.title + i} id={'p' + i} project={project} />)
+          }
         </Section>
       </Main>
     </TagContext.Provider>
