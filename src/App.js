@@ -75,7 +75,7 @@ const App = () => {
             {pitch}
           </Pitch>
           {projects
-            .map((project, i) => <Experience key={project.title + i} id={'p' + i} project={project} display={projectList.includes(project)} />)
+            .map((project, i) => <Experience key={project.title + i} id={'p' + i} project={project} display={projectList.includes(project)} index={i} />)
           }
         </Section>
       </Main>

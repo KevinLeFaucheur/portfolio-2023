@@ -2,11 +2,11 @@ import React from 'react'
 import { styled } from 'styled-components'
 import { Tag } from './Tag'
 
-export const Experience = ({ id, project, display }) => {
+export const Experience = ({ id, project, display, index }) => {
   const { start, end, title, subtitle, about, tech, pictures, link } = project;
 
   return (    
-  <Container id={id} className={display ? 'active' : 'hidden'} >
+  <Container id={id} className={display ? 'active' : 'hidden'} $delay={index} >
     <Date>
       <span>{start}</span>
       <span>{start && end ? '-' : ''}</span>
@@ -46,10 +46,11 @@ const Container = styled.div`
 
   &.active {
     animation: activate 250ms ease-in-out both;
+    animation-delay: ${({ $delay }) => parseInt($delay) * 100 + 'ms'};
   }
 
   &.hidden {
-    animation: deactivate 250ms ease-in-out both;
+    animation: deactivate 400ms ease-in-out both;
   }
 
   @keyframes activate {
@@ -67,12 +68,15 @@ const Container = styled.div`
   @keyframes deactivate {
     0% {
         opacity: 1;
+        height: 300px;
+        overflow-y: hidden;
     }
 
     100% {
         opacity: 0;
         display: none;
-        transform: translateY(-100%);
+        height: 0px;
+        transform: translateX(100%);
     }
   }
 `
