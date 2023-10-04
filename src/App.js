@@ -3,7 +3,7 @@ import './App.css';
 import { Experience } from './components/Experience';
 import { projects } from './data/projects';
 import { pitch } from './data/projects';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 
 export const TagContext = createContext([]);
 
@@ -74,8 +74,8 @@ const App = () => {
           <Pitch>
             {pitch}
           </Pitch>
-          {projectList
-            .map((project, i) => <Experience key={project.title + i} id={'p' + i} project={project} />)
+          {projects
+            .map((project, i) => <Experience key={project.title + i} id={'p' + i} project={project} display={projectList.includes(project)} />)
           }
         </Section>
       </Main>
@@ -168,7 +168,6 @@ const SocialLink = styled.a`
 `
 
 const Pitch = styled.div`
-  /* background-color: #f6f6f6; */// debug
   padding: 10px;
   margin: 5% 1rem;
   font-weight: 500;

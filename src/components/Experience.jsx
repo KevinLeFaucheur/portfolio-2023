@@ -2,11 +2,11 @@ import React from 'react'
 import { styled } from 'styled-components'
 import { Tag } from './Tag'
 
-export const Experience = ({ id, project }) => {
+export const Experience = ({ id, project, display }) => {
   const { start, end, title, subtitle, about, tech, pictures, link } = project;
 
   return (    
-  <Container id={id}>
+  <Container id={id} className={display ? 'active' : 'hidden'} >
     <Date>
       <span>{start}</span>
       <span>{start && end ? '-' : ''}</span>
@@ -42,6 +42,38 @@ const Container = styled.div`
   &:hover {
     background-color: rgba(74, 185, 236, .05);
     transition: all 0.25s ease-in-out;
+  }
+
+  &.active {
+    animation: activate 250ms ease-in-out both;
+  }
+
+  &.hidden {
+    animation: deactivate 250ms ease-in-out both;
+  }
+
+  @keyframes activate {
+    0% {
+        display: flex;
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+    }
+  }
+
+  @keyframes deactivate {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+        transform: translateY(-100%);
+    }
   }
 `
 
