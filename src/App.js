@@ -39,7 +39,7 @@ const App = () => {
   }
 
   return (
-    <TagContext.Provider value={addTag} >
+    <TagContext.Provider value={{addTag, tags}} >
       <Main>
         <Section width="40%" $border="1px solid black">
           <Header>

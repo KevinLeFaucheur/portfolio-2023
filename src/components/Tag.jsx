@@ -3,8 +3,8 @@ import { styled } from 'styled-components'
 import { TagContext } from '../App';
 
 export const Tag = ({ name }) => {
-  const addTag = useContext(TagContext);
   const [selected, setSelected] = useState(false);
+  const { addTag, tags } = useContext(TagContext)
 
   const handleTagToggle = (name) => {
     addTag(name);
@@ -12,7 +12,7 @@ export const Tag = ({ name }) => {
   }
 
   return (
-    <Container onClick={() => handleTagToggle(name)} className={selected ? 'selected' : ''} >{name}</Container>
+    <Container onClick={() => handleTagToggle(name)} className={selected || tags.includes(name) ? 'selected' : ''} >{name}</Container>
   )
 }
 
