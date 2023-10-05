@@ -4,10 +4,10 @@ import { TagContext } from '../App';
 
 export const Tag = ({ name }) => {
   const [selected, setSelected] = useState(false);
-  const { addTag, tags } = useContext(TagContext)
+  const { toggleTag, tags } = useContext(TagContext)
 
   const handleTagToggle = (name) => {
-    addTag(name);
+    toggleTag(name);
     setSelected(!selected);
   }
 

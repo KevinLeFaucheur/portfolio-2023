@@ -24,7 +24,7 @@ const App = () => {
     }
   }
 
-  const addTag = (name) => {
+  const toggleTag = (name) => {
     //
     if(!tags.some(tagName => tagName === name)) {
       tags.push(name);
@@ -39,7 +39,7 @@ const App = () => {
   }
 
   return (
-    <TagContext.Provider value={{addTag, tags}} >
+    <TagContext.Provider value={{toggleTag, tags}} >
       <Main>
         <Section width="40%" $border="1px solid black">
           <Header>
