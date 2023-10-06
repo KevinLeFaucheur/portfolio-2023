@@ -20,11 +20,11 @@ const App = () => {
     if (tags.length === 0) {
       setProjectList(projects);
     } else {
-      setProjectList(projects.filter(filterFn));
+      setProjectList(projects.filter(filterAND));
     }
   }
 
-  const filterFn = (project) => {
+  const filterAND = (project) => {
     let hasAllTags = true;
     tags.forEach(tag => {
       if(!project.tech.includes(tag)) hasAllTags = false;
