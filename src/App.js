@@ -20,8 +20,16 @@ const App = () => {
     if (tags.length === 0) {
       setProjectList(projects);
     } else {
-      setProjectList(projects.filter(project => tags.some(tag => project.tech.includes(tag))));
+      setProjectList(projects.filter(filterFn));
     }
+  }
+
+  const filterFn = (project) => {
+    let hasAllTags = true;
+    tags.forEach(tag => {
+      if(!project.tech.includes(tag)) hasAllTags = false;
+    })
+    return hasAllTags;
   }
 
   const toggleTag = (name) => {
