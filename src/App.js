@@ -45,7 +45,7 @@ const App = () => {
           <Header>
             <Name>Kevin Le Faucheur</Name>
             <Job>Développeur Frontend</Job>
-            <Hook>Un vecteur graphique et déterminant pour votre entreprise.</Hook>
+            <Hook>Je produis une solution créative à votre projet d'application responsive.</Hook>
           </Header>
           <Nav>
             {projects.map((project, i) => (

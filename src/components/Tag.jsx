@@ -1,18 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { styled } from 'styled-components'
 import { TagContext } from '../App';
 
-export const Tag = ({ name }) => {
-  const [selected, setSelected] = useState(false);
-  const { toggleTag, tags } = useContext(TagContext)
+export const Tag = ({ name, isSelected }) => {
+  const { toggleTag } = useContext(TagContext);
 
   const handleTagToggle = (name) => {
     toggleTag(name);
-    setSelected(!selected);
   }
 
   return (
-    <Container onClick={() => handleTagToggle(name)} className={selected || tags.includes(name) ? 'selected' : ''} >{name}</Container>
+    <Container onClick={() => handleTagToggle(name)} className={isSelected ? 'selected' : ''} >{name}</Container>
   )
 }
 
