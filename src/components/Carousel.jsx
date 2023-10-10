@@ -13,11 +13,16 @@ export const Carousel = ({ pictures }) => {
     return 'hidden';
   }
 
+  const handleClickArrow = (n) => {
+    if(n === -1 && currentIndex > 0) setCurrentIndex(currentIndex + n);
+    if(n === 1 && currentIndex < dPictures.length-1) setCurrentIndex(currentIndex + n);
+  } 
+
   return (
     <Wrapper>
-      <Arrow className="fa-solid fa-angle-left" />
+      <Arrow className="fa-solid fa-angle-left" onClick={() => handleClickArrow(-1)} />
       {dPictures.map((picture, i) => <Image alt={picture} className={setImageClassName(i)} />)}
-      <Arrow className="fa-solid fa-angle-right" />
+      <Arrow className="fa-solid fa-angle-right" onClick={() => handleClickArrow(1)} />
     </Wrapper>
   )
 }
