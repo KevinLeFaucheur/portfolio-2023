@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { styled } from 'styled-components'
 import { Tag } from './Tag'
 import { TagContext } from '../App';
+import { Carousel } from './Carousel';
 
 export const Experience = ({ id, project, display, index }) => {
   const { start, end, title, subtitle, about, tech, pictures, link } = project;
@@ -24,6 +25,7 @@ export const Experience = ({ id, project, display, index }) => {
         {tech.map(tag => <Tag key={tag} name={tag} isSelected={tags.includes(tag)} />)}
       </Technologies>
       {pictures && pictures.map(picture => <img key={picture.alt} src='' alt='' />)}
+      <Carousel pictures={pictures} />
     </Body>
   </Container>
   )
