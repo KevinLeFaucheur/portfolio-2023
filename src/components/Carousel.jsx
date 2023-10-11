@@ -3,6 +3,7 @@ import { styled } from 'styled-components'
 
 export const Carousel = ({ pictures }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   let dPictures = ['1', '2', '3', '4'];
 
@@ -16,12 +17,13 @@ export const Carousel = ({ pictures }) => {
   const handleClickArrow = (n) => {
     if(n === -1 && currentIndex > 0) setCurrentIndex(currentIndex + n);
     if(n === 1 && currentIndex < dPictures.length-1) setCurrentIndex(currentIndex + n);
+    setDirection(n);
   } 
 
   return (
     <Wrapper>
       <Arrow className="fa-solid fa-angle-left" onClick={() => handleClickArrow(-1)} />
-      {dPictures.map((picture, i) => <Image alt={picture} className={setImageClassName(i)} />)}
+      {dPictures.map((picture, i) => <Image alt={picture} className={setImageClassName(i)} direction={direction} />)}
       <Arrow className="fa-solid fa-angle-right" onClick={() => handleClickArrow(1)} />
     </Wrapper>
   )
@@ -62,5 +64,18 @@ const Image = styled.img`
     height: 100px;
     width: 50px;
     margin: auto 0;
+    transform: translateX(${({ direction }) => Number(-direction) * 50 + '%'});
+    transition: all 0.4s ease-in-out;
   }
+
+  /* @keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+    }
+  } */
 `
