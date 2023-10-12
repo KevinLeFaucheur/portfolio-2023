@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { styled } from 'styled-components'
 
 export const Carousel = ({ pictures }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const dialogRef = useRef();
 
   let dPictures = ['1', '2', '3', '4'];
 
@@ -23,8 +24,12 @@ export const Carousel = ({ pictures }) => {
   return (
     <Wrapper>
       <Arrow className="fa-solid fa-angle-left" onClick={() => handleClickArrow(-1)} />
-      {dPictures.map((picture, i) => <Image alt={picture} className={setImageClassName(i)} direction={direction} />)}
+      {dPictures.map((picture, i) => <Image onClick={() => dialogRef.current.showModal()} type="image" src="http://example.com/path/to/image.png" alt={picture} className={setImageClassName(i)} direction={direction} />)}
       <Arrow className="fa-solid fa-angle-right" onClick={() => handleClickArrow(1)} />
+      <dialog ref={dialogRef}>
+        <Image />
+        <button onClick={() => dialogRef.current.close()}>x</button>
+      </dialog>
     </Wrapper>
   )
 }
@@ -49,7 +54,7 @@ const Arrow = styled.button`
   }
 `
 
-const Image = styled.img`
+const Image = styled.input`
   cursor: pointer;
   background-color: aliceblue;
   height: 150px;
