@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { styled } from 'styled-components'
+import ohmyfood from '../assets/pictures/project/ohmyfood1.png'
 
 export const Carousel = ({ pictures }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,7 +28,7 @@ export const Carousel = ({ pictures }) => {
       {dPictures.map((picture, i) => <Image onClick={() => dialogRef.current.showModal()} type="image" src="http://example.com/path/to/image.png" alt={picture} className={setImageClassName(i)} direction={direction} />)}
       <Arrow className="fa-solid fa-angle-right" onClick={() => handleClickArrow(1)} />
       <Dialog ref={dialogRef}>
-        <DialogImage />
+        <DialogImage src={ohmyfood} />
         <Close onClick={() => dialogRef.current.close()}>x</Close>
       </Dialog>
     </Wrapper>
@@ -94,21 +95,21 @@ const Dialog = styled.dialog`
 `
 
 const DialogImage = styled.img`
-  height: 150px;
-  width: 150px;
+  max-width: 1280px;
   border-radius: 5px;
   background-color: aliceblue;
+  src: ${({ src }) => src};
 `
 
 const Close = styled.button`
   position: absolute;
-  top: 0;
-  right: -25px;
+  background-color: transparent;
+  color: black;
+  top: -15px;
+  right: -15px;
   z-index: 10;
   border-radius: 50%;
-  border: 2px solid white;
-  background-color: transparent;
-  color: white;
+  border: 2px solid black;
   font-size: 1rem;
   font-weight: 500;
 `

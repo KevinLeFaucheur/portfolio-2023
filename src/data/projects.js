@@ -16,7 +16,7 @@ export const projects = [
       "Mettre en place son environnement Front-End", 
       "Produire de la documentation technique pour une application"],
     tech: ['React', 'JavaScript', 'Styled-components', 'NPM', 'Context', 'Lighthouse'],
-    pictures: [],
+    pictures: ['src/assets/pictures/project/ohmyfood1.png'],
     link: "https://github.com/KevinLeFaucheur/hrnet-react",
   },
   {
