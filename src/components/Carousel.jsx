@@ -26,10 +26,10 @@ export const Carousel = ({ pictures }) => {
       <Arrow className="fa-solid fa-angle-left" onClick={() => handleClickArrow(-1)} />
       {dPictures.map((picture, i) => <Image onClick={() => dialogRef.current.showModal()} type="image" src="http://example.com/path/to/image.png" alt={picture} className={setImageClassName(i)} direction={direction} />)}
       <Arrow className="fa-solid fa-angle-right" onClick={() => handleClickArrow(1)} />
-      <dialog ref={dialogRef}>
-        <Image />
-        <button onClick={() => dialogRef.current.close()}>x</button>
-      </dialog>
+      <Dialog ref={dialogRef}>
+        <DialogImage />
+        <Close onClick={() => dialogRef.current.close()}>x</Close>
+      </Dialog>
     </Wrapper>
   )
 }
@@ -83,4 +83,32 @@ const Image = styled.input`
         opacity: 1;
     }
   } */
+`
+
+const Dialog = styled.dialog`
+  position: relative;
+  padding: 0;
+  background: none;
+  border: none;
+  overflow: visible;
+`
+
+const DialogImage = styled.img`
+  height: 150px;
+  width: 150px;
+  border-radius: 5px;
+  background-color: aliceblue;
+`
+
+const Close = styled.button`
+  position: absolute;
+  top: 0;
+  right: -25px;
+  z-index: 10;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
 `
