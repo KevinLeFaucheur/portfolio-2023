@@ -25,7 +25,7 @@ export const Carousel = ({ pictures }) => {
   return (
     <Wrapper>
       <Arrow className="fa-solid fa-angle-left" onClick={() => handleClickArrow(-1)} />
-      {dPictures.map((picture, i) => <Image onClick={() => dialogRef.current.showModal()} type="image" src="http://example.com/path/to/image.png" alt={picture} className={setImageClassName(i)} direction={direction} />)}
+      {dPictures.map((picture, i) => <Image key={i} onClick={() => dialogRef.current.showModal()} type="image" src="" alt={picture} className={setImageClassName(i)} direction={direction} />)}
       <Arrow className="fa-solid fa-angle-right" onClick={() => handleClickArrow(1)} />
       <Dialog ref={dialogRef}>
         <DialogImage src={ohmyfood} />

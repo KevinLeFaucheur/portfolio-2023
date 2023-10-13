@@ -24,7 +24,6 @@ export const Experience = ({ id, project, display, index }) => {
       <Technologies>
         {tech.map(tag => <Tag key={tag} name={tag} isSelected={tags.includes(tag)} />)}
       </Technologies>
-      {pictures && pictures.map(picture => <img key={picture.alt} src='' alt='' />)}
       <Carousel pictures={pictures} />
     </Body>
   </Container>

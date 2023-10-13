@@ -13,6 +13,9 @@ const App = () => {
   const [projectList, setProjectList] = useState(projects);
 
   const handleAnchorClick = (name) => {
+    if(name === 0) {
+      document.documentElement.scrollTop = 0;
+    }
     setSelected(name);
   }
 
@@ -53,7 +56,7 @@ const App = () => {
           <Header>
             <Name>Kevin Le Faucheur</Name>
             <Job>Développeur Frontend</Job>
-            <Hook>Je produis une solution créative à votre projet d'application responsive.</Hook>
+            <Hook>J'apporte une solution créative aux projets d'application responsive.</Hook>
           </Header>
           <Nav>
             {projects.map((project, i) => (
@@ -66,6 +69,10 @@ const App = () => {
                 <span className='anchor'>Projet {i + 1}</span>
               </Anchor>
             ))}
+            <Anchor onClick={() => handleAnchorClick(0)} >
+              <Bullet />
+              <span className='anchor'>Back To Top</span>
+            </Anchor>
           </Nav>
           <Social width="40%">
             <SocialLink href='https://www.linkedin.com/in/kevin-le-faucheur/'>
