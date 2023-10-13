@@ -72,6 +72,11 @@ const Image = styled.input`
   width: 150px;
   border-radius: 5px;
 
+  &:hover {
+    transform: scale(1.1, 1.1);
+    transition: transform 0.4s ease-out;
+  }
+
   &.hidden {
     display: none;
   }
