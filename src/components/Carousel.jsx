@@ -22,14 +22,24 @@ export const Carousel = ({ pictures }) => {
     setDirection(n);
   } 
 
+  const handleShowModal = () => {
+    dialogRef.current.showModal();
+    dialogRef.current.classList.add('active');
+  }
+
+  const handleCloseModal = () => {
+    dialogRef.current.close();
+    dialogRef.current.classList.remove('active');
+  }
+
   return (
     <Wrapper>
       <Arrow className="fa-solid fa-angle-left" onClick={() => handleClickArrow(-1)} />
-      {dPictures.map((picture, i) => <Image key={i} onClick={() => dialogRef.current.showModal()} type="image" src="" alt={picture} className={setImageClassName(i)} direction={direction} />)}
+      {dPictures.map((picture, i) => <Image key={i} onClick={() => handleShowModal()} type="image" src="" alt={picture} className={setImageClassName(i)} direction={direction} />)}
       <Arrow className="fa-solid fa-angle-right" onClick={() => handleClickArrow(1)} />
-      <Dialog ref={dialogRef}>
+      <Dialog ref={dialogRef} >
         <DialogImage src={ohmyfood} />
-        <Close onClick={() => dialogRef.current.close()}>x</Close>
+        <Close onClick={() => handleCloseModal()}>x</Close>
       </Dialog>
     </Wrapper>
   )
@@ -92,6 +102,13 @@ const Dialog = styled.dialog`
   background: none;
   border: none;
   overflow: visible;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.4s ease-in-out;
+  }
 `
 
 const DialogImage = styled.img`
