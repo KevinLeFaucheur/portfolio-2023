@@ -68,8 +68,8 @@ const Arrow = styled.button`
 const Image = styled.input`
   cursor: pointer;
   background-color: aliceblue;
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 160px;
   border-radius: 5px;
 
   &:hover {
@@ -82,11 +82,11 @@ const Image = styled.input`
   }
 
   &.prev, &.next {
-    height: 100px;
-    width: 50px;
+    height: 48px;
+    width: 64px;
     margin: auto 0;
     transform: translateX(${({ direction }) => Number(-direction) * 50 + '%'});
-    transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-out;
   }
 
   /* @keyframes slide {
